@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.has_rdoc = true
 
-  s.add_dependency 'spree_core', '>= 3.2.0', '< 4.2'
+  s.add_dependency 'spree_core', '>= 3.2.0', '< 4.3'
 
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'capybara', '~> 2.6'
