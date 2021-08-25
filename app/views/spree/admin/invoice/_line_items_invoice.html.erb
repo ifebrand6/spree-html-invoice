@@ -19,15 +19,15 @@
       <td class="cell" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%= item.variant.product.fullname rescue item.variant.product.name %></font></td>
       <td class="cell price" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency(item.price, :unit => "₦") unless @receipt%></font></td>
       <td class="cell qty" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=item.quantity %></font></td>
-      <td align="right" class="cell total" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency(item.price * item.quantity) %></font></td>
+      <td align="right" class="cell total" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency((item.price * item.quantity),:unit => "₦") %></font></td>
     </tr>
     <% if item.respond_to? :discount and item.discount > 0 %>
        <tr style="border-bottom:solid 1px #cccccc;">
         <td class="cell" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2">&nbsp;</font></td>
         <td class="cell" style="border-bottom:solid 1px #cccccc;">(<font face="Arial, Helvetica, sans-serif" size="2"><%= Spree.t(:discount) %>)</font></td>
-        <td class="cell price" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency(-1 * item.discount) %></font></td>
+        <td class="cell price" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency((-1 * item.discount),:unit => "₦") %></font></td>
         <td class="cell qty" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2">&nbsp;</font></td>
-        <td class="cell total" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency(-1 * item.discount * item.quantity) %></font></td>
+        <td class="cell total" style="border-bottom:solid 1px #cccccc;"><font face="Arial, Helvetica, sans-serif" size="2"><%=number_to_currency((-1 * item.discount * item.quantity),:unit => "₦") %></font></td>
       </tr>
     <% end %>
   <% end %>
